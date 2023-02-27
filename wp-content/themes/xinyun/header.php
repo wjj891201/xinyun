@@ -23,7 +23,7 @@
                 <div class="top-header flex">
                     <ul class="navs flex flex-align-center flex-pack-end">
                         <li class="nav-item nav-item1 active">
-                            <a href="" class="active"></a>
+                            <a href="/category/blog" class="active"></a>
                         </li>
                         <li class="nav-item nav-item2">
                             <a href="" class=""></a>
@@ -31,7 +31,7 @@
                     </ul>
                     <ul class="navs flex flex-align-center flex-pack-end">
                         <li class="nav-item nav-item3 ">
-                            <a href="" class=""></a>
+                            <a href="/" class=""></a>
                         </li>
                     </ul>
                 </div>

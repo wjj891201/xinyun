@@ -19,10 +19,10 @@
                 <div class="espcms_book">
                     <ul class="espcms_newslist_read unstyled">
                         <li style="color: #666666; font-size: 15px">
-                            上一篇：
-                            <a class="infolist2" title="星雲歡樂城很受歡迎嗎？" href="" style="color: #666666">
-                                星雲歡樂城很受歡迎嗎？                    
-                            </a>
+                            <?php previous_post_link('上一篇: %link') ?>
+                        </li>
+                        <li style="color: #666666; font-size: 15px">
+                            <?php next_post_link('下一篇: %link') ?>
                         </li>
                     </ul>
                 </div>

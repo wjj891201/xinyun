@@ -34,8 +34,10 @@
         <div class="morelist">
             <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-android">
                 <div class="swiper-wrapper swiperlist" style="transform: translate3d(0px, 0px, 0px);">
-
-                    <?php while (have_posts()):the_post(); ?>
+                    <?php
+                        query_posts('showposts=5');
+                        while (have_posts()):the_post();
+                    ?>
                         <a href="<?php the_permalink() ?>" class="list-item swiper-slide swiper-slide-active" style="width: 477.333px; margin-right: 50px;">
                             <div class="imgbox">
                                 <img src="<?= get_the_post_thumbnail_url() ?>" alt="" srcset="">

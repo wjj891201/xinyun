@@ -1,5 +1,8 @@
 <?php
 
+//为文章添加特色图像
+add_theme_support('post-thumbnails');
+
 function xuwen_nav_menus()
 {
     register_nav_menus(array(
@@ -7,5 +10,6 @@ function xuwen_nav_menus()
         'footer' => __('页脚菜单', 'xuwen')
     ));
 }
-
 add_action('init', 'xuwen_nav_menus');
+
+

@@ -30,15 +30,15 @@
                 <div class="top-header flex">
                     <ul class="navs flex flex-align-center flex-pack-end">
                         <li class="nav-item nav-item1">
-                            <a href="https://www.xinyungame.com/index.php?ac=article&amp;at=list&amp;tid=187" class=""></a>
+                            <a href="" class=""></a>
                         </li>
                         <li class="nav-item nav-item2">
-                            <a href="https://www.google.com/" class=""></a>
+                            <a href="" class=""></a>
                         </li>
                     </ul>
                     <ul class="navs flex flex-align-center flex-pack-end">
                         <li class="nav-item nav-item3 active">
-                            <a href="https://www.xinyungame.com/" class=""></a>
+                            <a href="" class=""></a>
                         </li>
                     </ul>
                 </div>

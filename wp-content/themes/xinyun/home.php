@@ -67,64 +67,41 @@
                         </div>
                     </div>
                     <div class="part part2 goodslist">
-                        <div class="item">
-                            <div>
-                                <div class="bg-cover bg-center text-white text-center" style="background-image: url(https://www.xinyungame.com/templates/casino/img/game_title.jpg);padding:20px 0">
-                                    <span style="color:#ecdb80;font-size:30px;text-align: center;padding:60px 50px"> 百家樂</span>
+                        <?php $args = ['category' => 5, 'numberposts' => 4, 'orderby' => 'id', 'order' => 'ASC']; ?>
+                        <?php $posts = get_posts($args); ?>
+                        <?php if ($posts): ?>
+                            <?php foreach ($posts as $post):setup_postdata($post); ?>
+                                <div class="item">
+                                    <div>
+                                        <div class="bg-cover bg-center text-white text-center" style="background-image: url(https://www.xinyungame.com/templates/casino/img/game_title.jpg);padding:20px 0">
+                                            <span style="color:#ecdb80;font-size:30px;text-align: center;padding:60px 50px"><?php the_title() ?></span>
+                                        </div>
+                                        <div class="info aos-init aos-animate" aos="fade-up">
+                                            <?php the_excerpt() ?>
+                                        </div>
+                                    </div>
+                                    <img src="<?= get_the_post_thumbnail_url() ?>" alt="" srcset="" class="img">
                                 </div>
-                                <div class="info aos-init aos-animate" aos="fade-up">
-                                    百家樂是最為歡迎的遊戲之一，廣受全球用戶喜愛的線上百家樂！星雲歡樂城也提供線上百家樂遊玩讓每一位玩家皆能順暢遊玩，流暢的百家樂遊玩體驗以及精美遊玩設計讓你愛不釋手。                </div>
-                            </div>
-                            <img src="<?php bloginfo('template_url') ?>/images/20230130221824_213.png" alt="" srcset="" class="img">
-                        </div>
-                        <div class="item">
-                            <div>
-                                <div class="bg-cover bg-center text-white text-center" style="background-image: url(https://www.xinyungame.com/templates/casino/img/game_title.jpg);padding:20px 0">
-                                    <span style="color:#ecdb80;font-size:30px;text-align: center;padding:60px 50px"> 射龍門</span>
-                                </div>
-                                <div class="info aos-init aos-animate" aos="fade-up">
-                                    簡單快速又刺激，大家都喜愛遊玩的射龍門遊戲！每年過年必玩的簡單卡牌遊戲，快速好上手的射龍門，讓你隨時加入遊玩！邀請朋友一起來星雲遊玩射龍門！                </div>
-                            </div>
-                            <img src="<?php bloginfo('template_url') ?>/images/20230130221912_550.png" alt="" srcset="" class="img">
-                        </div>
-                        <div class="item">
-                            <div>
-                                <div class="bg-cover bg-center text-white text-center" style="background-image: url(https://www.xinyungame.com/templates/casino/img/game_title.jpg);padding:20px 0">
-                                    <span style="color:#ecdb80;font-size:30px;text-align: center;padding:60px 50px"> 水果機</span>
-                                </div>
-                                <div class="info aos-init aos-animate" aos="fade-up">
-                                    全球玩家最愛的水果遊戲機，結合星雲麻將的設計畫面，讓你爽快的享受水果大餐！星雲歡樂城讓你遊玩台灣最好玩的線上水果機！                </div>
-                            </div>
-                            <img src="<?php bloginfo('template_url') ?>/images/20230130221933_931.png" alt="" srcset="" class="img">
-                        </div>
-                        <div class="item">
-                            <div>
-                                <div class="bg-cover bg-center text-white text-center" style="background-image: url(https://www.xinyungame.com/templates/casino/img/game_title.jpg);padding:20px 0">
-                                    <span style="color:#ecdb80;font-size:30px;text-align: center;padding:60px 50px"> 麻將</span>
-                                </div>
-                                <div class="info aos-init aos-animate" aos="fade-up">
-                                    星雲歡樂城提供最經典的台灣麻將，雙人麻將等不同玩法，還能邀請朋友一同進俱樂部線上遊玩，全台玩最好玩的線上麻將首選！                </div>
-                            </div>
-                            <img src="<?php bloginfo('template_url') ?>/images/20230130221950_656.png" alt="" srcset="" class="img">
-                        </div>
-
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                     <div class="part part3">
+
+                        <?php $page_id = 72; ?>
                         <div class="pc">
                             <img src="<?php bloginfo('template_url') ?>/images/bg2.png" alt="" class="bg">
-                            <div class="txt " style="color:#ecdb80">
-                                <h1 class="text-3xl  " style="color:#ecdb80">星雲歡樂城介紹</h1>
-                                <div class="my-4  text-xl">
-                                    首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹~                  </div>
+                            <div class="txt" style="color:#ecdb80">
+                                <h1 class="text-3xl" style="color:#ecdb80"><?= get_post($page_id)->post_title; ?></h1>
+                                <div class="my-4  text-xl"><?= get_post($page_id)->post_content; ?></div>
                             </div>
                         </div>
                         <div class="phone">
                             <img src="<?php bloginfo('template_url') ?>/images/bg_mobile.png" alt="" class="bg">
-
-                            <div class="txt  " style="color:#ecdb80">
-                                <h1 class="text-3xl " style="color:#ecdb80">星雲歡樂城介紹</h1>
+                            <div class="txt" style="color:#ecdb80">
+                                <h1 class="text-3xl" style="color:#ecdb80">星雲歡樂城介紹</h1>
                                 <div class="my-4 text-xl">
-                                    首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹~                  </div>
+                                    首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹~                  
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -193,39 +170,21 @@
                     <div class="part part5">
                         <img src="<?php bloginfo('template_url') ?>/images/faq.png" alt="" srcset="" class="faq-title">
                         <div class="faq">
-                            <div class="faq-item">
-                                <div class="title">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAaCAYAAAA9rOU8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4ODMwNEEzRjczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4ODMwNEE0MDczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg4MzA0QTNENzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg4MzA0QTNFNzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3rRPqAAAAjJJREFUeNq8lk9IVFEUxvU6LQRRQaKdYpBhSis32UoUdCFo1piBYP5ZmIpQBIKUCAqiYCAaSVKzsNJSVELRhYILSzBpIbgwsU20CRFERh0C9TtwHhwuo973Z94Hv3nnzL3v8c1959w78bvbnXGsG2A7zn/lgE0KFLgGQmAVpPts5Bb4Dt6DtAA+ekEND46DfJ+MJIApkAxqwSGtzBA44Ql3QJdPZkbBTY7D4C2ZWRcrQ3oB7sbYSDN4JPIysKE4+QDGxOA0SIyRkTx+G5Y6wJJVwJZodf5wfBV8jIGRJDAr8nlZFtLMf/BA5PdAvcdmJrl7SX9BUA4qbfIaeCnyEXDdIyNUi8Xajw1fZIbUDVY4juf6casCrUtbwA99kjrn5vsgwvFt0O/CSBrvJ5Y+g9fRJp5n5p/Wes9AkUMzX0Eqx7+15xqZsdr7ncgnQIpNI6/Ejn4KSvhq2wypAexwnMrHhamoM5+KvPqyg1gZPLRCxPTLWg3uyQSfRP5Gyx2b2QDPRT4Asg3q5ArHP0GTyVIqwyWnbloU+cwFc6nOcjk+BuWm71XZqIGH4IDjLF56XY9BnciD4ojx1MweqBR5IyjV/rGFRN6jnUOemiEtgEGRfwEBjufE98ug3e6GFHCwiVE3FfJfxkQ+3en1ZfD4rp06cWvGOuS2OK7UxsjIvpOHKodmfoEnUb5vA9+cHmJOzZCGtQKlvaXPzdHuxgypiq8Rbn1XCri8P8ztfcQbnCudCTAA+ttgbGgBPuoAAAAASUVORK5CYII=">
-                                    <span>Q：為什麼要遊玩星雲歡樂城？</span>
-                                </div>
-                                <div class="con">星雲歡樂城擁有豐富的遊戲種類，可以滿足每一位玩家遊玩的慾望！流暢的遊玩體驗，精美的畫面視覺，讓玩家沈浸於遊戲平台！星雲歡樂城也將提供豐富的優惠讓玩家一同享受！</div>
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABg0AAAAFCAYAAAB2DaxSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkVBQjA4QTczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkVBQjA4QjczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCRUFCMDg4NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCRUFCMDg5NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+eBjj8gAAAINJREFUeNrs260NQmEMhtHytwSCBAsIBIoV7lIsCBKDQyOvwJDwfnP0nOTpALVNF5/X7VRV27RPvwIAAAAAALpZpvc6Y5cO6VKOBgAAAAAA0NEqPcbR4JqmdLYTAAAAAABo6zjeDb5ptgsAAAAAAGhtHp8Gz7QphwMAAAAAAOjs/hdgAL1gDUVksrGIAAAAAElFTkSuQmCC" class="bottom-line">
-                            </div>
-                            <div class="faq-item">
-                                <div class="title">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAaCAYAAAA9rOU8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4ODMwNEEzRjczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4ODMwNEE0MDczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg4MzA0QTNENzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg4MzA0QTNFNzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3rRPqAAAAjJJREFUeNq8lk9IVFEUxvU6LQRRQaKdYpBhSis32UoUdCFo1piBYP5ZmIpQBIKUCAqiYCAaSVKzsNJSVELRhYILSzBpIbgwsU20CRFERh0C9TtwHhwuo973Z94Hv3nnzL3v8c1959w78bvbnXGsG2A7zn/lgE0KFLgGQmAVpPts5Bb4Dt6DtAA+ekEND46DfJ+MJIApkAxqwSGtzBA44Ql3QJdPZkbBTY7D4C2ZWRcrQ3oB7sbYSDN4JPIysKE4+QDGxOA0SIyRkTx+G5Y6wJJVwJZodf5wfBV8jIGRJDAr8nlZFtLMf/BA5PdAvcdmJrl7SX9BUA4qbfIaeCnyEXDdIyNUi8Xajw1fZIbUDVY4juf6casCrUtbwA99kjrn5vsgwvFt0O/CSBrvJ5Y+g9fRJp5n5p/Wes9AkUMzX0Eqx7+15xqZsdr7ncgnQIpNI6/Ejn4KSvhq2wypAexwnMrHhamoM5+KvPqyg1gZPLRCxPTLWg3uyQSfRP5Gyx2b2QDPRT4Asg3q5ArHP0GTyVIqwyWnbloU+cwFc6nOcjk+BuWm71XZqIGH4IDjLF56XY9BnciD4ojx1MweqBR5IyjV/rGFRN6jnUOemiEtgEGRfwEBjufE98ug3e6GFHCwiVE3FfJfxkQ+3en1ZfD4rp06cWvGOuS2OK7UxsjIvpOHKodmfoEnUb5vA9+cHmJOzZCGtQKlvaXPzdHuxgypiq8Rbn1XCri8P8ztfcQbnCudCTAA+ttgbGgBPuoAAAAASUVORK5CYII=">
-                                    <span>Q：為什麼要遊玩星雲歡樂城？</span>
-                                </div>
-                                <div class="con">星雲歡樂城擁有豐富的遊戲種類，可以滿足每一位玩家遊玩的慾望！流暢的遊玩體驗，精美的畫面視覺，讓玩家沈浸於遊戲平台！星雲歡樂城也將提供豐富的優惠讓玩家一同享受！</div>
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABg0AAAAFCAYAAAB2DaxSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkVBQjA4QTczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkVBQjA4QjczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCRUFCMDg4NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCRUFCMDg5NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+eBjj8gAAAINJREFUeNrs260NQmEMhtHytwSCBAsIBIoV7lIsCBKDQyOvwJDwfnP0nOTpALVNF5/X7VRV27RPvwIAAAAAALpZpvc6Y5cO6VKOBgAAAAAA0NEqPcbR4JqmdLYTAAAAAABo6zjeDb5ptgsAAAAAAGhtHp8Gz7QphwMAAAAAAOjs/hdgAL1gDUVksrGIAAAAAElFTkSuQmCC" class="bottom-line">
-                            </div>
-                            <div class="faq-item">
-                                <div class="title">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAaCAYAAAA9rOU8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4ODMwNEEzRjczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4ODMwNEE0MDczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg4MzA0QTNENzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg4MzA0QTNFNzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3rRPqAAAAjJJREFUeNq8lk9IVFEUxvU6LQRRQaKdYpBhSis32UoUdCFo1piBYP5ZmIpQBIKUCAqiYCAaSVKzsNJSVELRhYILSzBpIbgwsU20CRFERh0C9TtwHhwuo973Z94Hv3nnzL3v8c1959w78bvbnXGsG2A7zn/lgE0KFLgGQmAVpPts5Bb4Dt6DtAA+ekEND46DfJ+MJIApkAxqwSGtzBA44Ql3QJdPZkbBTY7D4C2ZWRcrQ3oB7sbYSDN4JPIysKE4+QDGxOA0SIyRkTx+G5Y6wJJVwJZodf5wfBV8jIGRJDAr8nlZFtLMf/BA5PdAvcdmJrl7SX9BUA4qbfIaeCnyEXDdIyNUi8Xajw1fZIbUDVY4juf6casCrUtbwA99kjrn5vsgwvFt0O/CSBrvJ5Y+g9fRJp5n5p/Wes9AkUMzX0Eqx7+15xqZsdr7ncgnQIpNI6/Ejn4KSvhq2wypAexwnMrHhamoM5+KvPqyg1gZPLRCxPTLWg3uyQSfRP5Gyx2b2QDPRT4Asg3q5ArHP0GTyVIqwyWnbloU+cwFc6nOcjk+BuWm71XZqIGH4IDjLF56XY9BnciD4ojx1MweqBR5IyjV/rGFRN6jnUOemiEtgEGRfwEBjufE98ug3e6GFHCwiVE3FfJfxkQ+3en1ZfD4rp06cWvGOuS2OK7UxsjIvpOHKodmfoEnUb5vA9+cHmJOzZCGtQKlvaXPzdHuxgypiq8Rbn1XCri8P8ztfcQbnCudCTAA+ttgbGgBPuoAAAAASUVORK5CYII=">
-                                    <span>Q：為什麼要遊玩星雲歡樂城？</span>
-                                </div>
-                                <div class="con">星雲歡樂城擁有豐富的遊戲種類，可以滿足每一位玩家遊玩的慾望！流暢的遊玩體驗，精美的畫面視覺，讓玩家沈浸於遊戲平台！星雲歡樂城也將提供豐富的優惠讓玩家一同享受！</div>
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABg0AAAAFCAYAAAB2DaxSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkVBQjA4QTczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkVBQjA4QjczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCRUFCMDg4NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCRUFCMDg5NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+eBjj8gAAAINJREFUeNrs260NQmEMhtHytwSCBAsIBIoV7lIsCBKDQyOvwJDwfnP0nOTpALVNF5/X7VRV27RPvwIAAAAAALpZpvc6Y5cO6VKOBgAAAAAA0NEqPcbR4JqmdLYTAAAAAABo6zjeDb5ptgsAAAAAAGhtHp8Gz7QphwMAAAAAAOjs/hdgAL1gDUVksrGIAAAAAElFTkSuQmCC" class="bottom-line">
-                            </div>
-                            <div class="faq-item">
-                                <div class="title">
-                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAaCAYAAAA9rOU8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4ODMwNEEzRjczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4ODMwNEE0MDczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg4MzA0QTNENzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg4MzA0QTNFNzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3rRPqAAAAjJJREFUeNq8lk9IVFEUxvU6LQRRQaKdYpBhSis32UoUdCFo1piBYP5ZmIpQBIKUCAqiYCAaSVKzsNJSVELRhYILSzBpIbgwsU20CRFERh0C9TtwHhwuo973Z94Hv3nnzL3v8c1959w78bvbnXGsG2A7zn/lgE0KFLgGQmAVpPts5Bb4Dt6DtAA+ekEND46DfJ+MJIApkAxqwSGtzBA44Ql3QJdPZkbBTY7D4C2ZWRcrQ3oB7sbYSDN4JPIysKE4+QDGxOA0SIyRkTx+G5Y6wJJVwJZodf5wfBV8jIGRJDAr8nlZFtLMf/BA5PdAvcdmJrl7SX9BUA4qbfIaeCnyEXDdIyNUi8Xajw1fZIbUDVY4juf6casCrUtbwA99kjrn5vsgwvFt0O/CSBrvJ5Y+g9fRJp5n5p/Wes9AkUMzX0Eqx7+15xqZsdr7ncgnQIpNI6/Ejn4KSvhq2wypAexwnMrHhamoM5+KvPqyg1gZPLRCxPTLWg3uyQSfRP5Gyx2b2QDPRT4Asg3q5ArHP0GTyVIqwyWnbloU+cwFc6nOcjk+BuWm71XZqIGH4IDjLF56XY9BnciD4ojx1MweqBR5IyjV/rGFRN6jnUOemiEtgEGRfwEBjufE98ug3e6GFHCwiVE3FfJfxkQ+3en1ZfD4rp06cWvGOuS2OK7UxsjIvpOHKodmfoEnUb5vA9+cHmJOzZCGtQKlvaXPzdHuxgypiq8Rbn1XCri8P8ztfcQbnCudCTAA+ttgbGgBPuoAAAAASUVORK5CYII=">
-                                    <span>Q：為什麼要遊玩星雲歡樂城？</span>
-                                </div>
-                                <div class="con">星雲歡樂城擁有豐富的遊戲種類，可以滿足每一位玩家遊玩的慾望！流暢的遊玩體驗，精美的畫面視覺，讓玩家沈浸於遊戲平台！星雲歡樂城也將提供豐富的優惠讓玩家一同享受！</div>
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABg0AAAAFCAYAAAB2DaxSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkVBQjA4QTczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkVBQjA4QjczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCRUFCMDg4NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCRUFCMDg5NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+eBjj8gAAAINJREFUeNrs260NQmEMhtHytwSCBAsIBIoV7lIsCBKDQyOvwJDwfnP0nOTpALVNF5/X7VRV27RPvwIAAAAAALpZpvc6Y5cO6VKOBgAAAAAA0NEqPcbR4JqmdLYTAAAAAABo6zjeDb5ptgsAAAAAAGhtHp8Gz7QphwMAAAAAAOjs/hdgAL1gDUVksrGIAAAAAElFTkSuQmCC" class="bottom-line">
-                            </div>
 
+                            <?php $args = ['category' => 6, 'numberposts' => 10, 'orderby' => 'id', 'order' => 'ASC']; ?>
+                            <?php $posts = get_posts($args); ?>
+                            <?php if ($posts): ?>
+                                <?php foreach ($posts as $post):setup_postdata($post); ?>
+                                    <div class="faq-item">
+                                        <div class="title">
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAaCAYAAAA9rOU8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4ODMwNEEzRjczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4ODMwNEE0MDczODUxMUVEQTVGNkYzRjY0QUZDMzU2QiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjg4MzA0QTNENzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjg4MzA0QTNFNzM4NTExRURBNUY2RjNGNjRBRkMzNTZCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3rRPqAAAAjJJREFUeNq8lk9IVFEUxvU6LQRRQaKdYpBhSis32UoUdCFo1piBYP5ZmIpQBIKUCAqiYCAaSVKzsNJSVELRhYILSzBpIbgwsU20CRFERh0C9TtwHhwuo973Z94Hv3nnzL3v8c1959w78bvbnXGsG2A7zn/lgE0KFLgGQmAVpPts5Bb4Dt6DtAA+ekEND46DfJ+MJIApkAxqwSGtzBA44Ql3QJdPZkbBTY7D4C2ZWRcrQ3oB7sbYSDN4JPIysKE4+QDGxOA0SIyRkTx+G5Y6wJJVwJZodf5wfBV8jIGRJDAr8nlZFtLMf/BA5PdAvcdmJrl7SX9BUA4qbfIaeCnyEXDdIyNUi8Xajw1fZIbUDVY4juf6casCrUtbwA99kjrn5vsgwvFt0O/CSBrvJ5Y+g9fRJp5n5p/Wes9AkUMzX0Eqx7+15xqZsdr7ncgnQIpNI6/Ejn4KSvhq2wypAexwnMrHhamoM5+KvPqyg1gZPLRCxPTLWg3uyQSfRP5Gyx2b2QDPRT4Asg3q5ArHP0GTyVIqwyWnbloU+cwFc6nOcjk+BuWm71XZqIGH4IDjLF56XY9BnciD4ojx1MweqBR5IyjV/rGFRN6jnUOemiEtgEGRfwEBjufE98ug3e6GFHCwiVE3FfJfxkQ+3en1ZfD4rp06cWvGOuS2OK7UxsjIvpOHKodmfoEnUb5vA9+cHmJOzZCGtQKlvaXPzdHuxgypiq8Rbn1XCri8P8ztfcQbnCudCTAA+ttgbGgBPuoAAAAASUVORK5CYII=">
+                                            <span>Q：<?php the_title() ?></span>
+                                        </div>
+                                        <div class="con"><?php the_excerpt() ?></div>
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABg0AAAAFCAYAAAB2DaxSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkVBQjA4QTczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkVBQjA4QjczODkxMUVEOEMzOUUxOEY1NEQ5Rjk5MyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCRUFCMDg4NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCRUFCMDg5NzM4OTExRUQ4QzM5RTE4RjU0RDlGOTkzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+eBjj8gAAAINJREFUeNrs260NQmEMhtHytwSCBAsIBIoV7lIsCBKDQyOvwJDwfnP0nOTpALVNF5/X7VRV27RPvwIAAAAAALpZpvc6Y5cO6VKOBgAAAAAA0NEqPcbR4JqmdLYTAAAAAABo6zjeDb5ptgsAAAAAAGhtHp8Gz7QphwMAAAAAAOjs/hdgAL1gDUVksrGIAAAAAElFTkSuQmCC" class="bottom-line">
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="part part6">

@@ -34,19 +34,20 @@
         <div class="morelist">
             <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-android">
                 <div class="swiper-wrapper swiperlist" style="transform: translate3d(0px, 0px, 0px);">
-                    <?php
-                        query_posts('showposts=5');
-                        while (have_posts()):the_post();
-                    ?>
-                        <a href="<?php the_permalink() ?>" class="list-item swiper-slide swiper-slide-active" style="width: 477.333px; margin-right: 50px;">
-                            <div class="imgbox">
-                                <img src="<?= get_the_post_thumbnail_url() ?>" alt="" srcset="">
-                            </div>
-                            <div class="name"><?php the_title() ?></div>
-                            <div class="time"><?php the_time('Y-m-d H:i:s') ?></div>
-                            <div class="read">Read More</div>
-                        </a>
-                    <?php endwhile; ?>
+                    <?php $args = ['category' => 4, 'numberposts' => 10, 'orderby' => 'id', 'order' => 'ASC']; ?>
+                    <?php $posts = get_posts($args); ?>
+                    <?php if ($posts): ?>
+                        <?php foreach ($posts as $post):setup_postdata($post); ?>
+                            <a href="<?php the_permalink() ?>" class="list-item swiper-slide swiper-slide-active" style="width: 477.333px; margin-right: 50px;">
+                                <div class="imgbox">
+                                    <img src="<?= get_the_post_thumbnail_url() ?>" alt="" srcset="">
+                                </div>
+                                <div class="name"><?php the_title() ?></div>
+                                <div class="time"><?php the_time('Y-m-d H:i:s') ?></div>
+                                <div class="read">Read More</div>
+                            </a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>

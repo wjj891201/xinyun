@@ -98,10 +98,8 @@
                         <div class="phone">
                             <img src="<?php bloginfo('template_url') ?>/images/bg_mobile.png" alt="" class="bg">
                             <div class="txt" style="color:#ecdb80">
-                                <h1 class="text-3xl" style="color:#ecdb80">星雲歡樂城介紹</h1>
-                                <div class="my-4 text-xl">
-                                    首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹首頁星雲介紹~                  
-                                </div>
+                                <h1 class="text-3xl" style="color:#ecdb80"><?= get_post($page_id)->post_title; ?></h1>
+                                <div class="my-4 text-xl"><?= get_post($page_id)->post_content; ?></div>
                             </div>
                         </div>
                     </div>

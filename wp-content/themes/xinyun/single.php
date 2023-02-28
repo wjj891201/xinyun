@@ -19,10 +19,10 @@
                 <div class="espcms_book">
                     <ul class="espcms_newslist_read unstyled">
                         <li style="color: #666666; font-size: 15px">
-                            <?php previous_post_link('上一篇: %link') ?>
+                            <?php previous_post_link('上一篇: %link', '%title', true, '') ?>
                         </li>
                         <li style="color: #666666; font-size: 15px">
-                            <?php next_post_link('下一篇: %link') ?>
+                            <?php next_post_link('下一篇: %link', '%title', true, '') ?>
                         </li>
                     </ul>
                 </div>
